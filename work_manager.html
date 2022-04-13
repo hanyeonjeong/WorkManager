@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>근/태 시스템</title>
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5e86ef82da.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        background: #efefef;
+    }
+
+    .number-box:nth-child(1) {
+        height: 20vh;
+        margin-top: 3.5vh;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+            inset -2px -2px 4px rgba(255, 255, 255, .5),
+            inset 2px 2px 2px rgba(255, 255, 255, .075),
+            inset 2px 2px 4px rgba(0, 0, 0, .15);
+    }
+
+    .number-box:nth-child(2) { 
+        height: 65vh;
+    }
+
+    .number-aria {
+        width: 80%;
+        height: 15vh;
+        padding-left: 1rem;
+        font-size: 4rem;
+        letter-spacing: 1.5rem;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        background: #efefef;
+    }
+
+    .info-box {
+        height: 5vh;
+        margin: 2vh 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 20px;
+        background: #efefef;
+        box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
+            -6px -6px 10px rgba(255, 255, 255, .5),
+            6px 6px 8px rgba(255, 255, 255, .075),
+            6px 6px 10px rgba(0, 0, 0, .15);
+    }
+
+    .info-text {
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+
+    .number-row {
+        height: 15vh;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .number-btn {
+        width: 10vh;
+        height: 10vh;
+        font-size: 2rem;
+        border-radius: 50%;
+        transition: .5s ease-in-out;
+        background: #efefef;
+        box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
+            -6px -6px 10px rgba(255, 255, 255, .5),
+            6px 6px 8px rgba(255, 255, 255, .075),
+            6px 6px 10px rgba(0, 0, 0, .15);
+        border: none;
+    }
+
+    .number-btn:active {
+        box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+            inset -2px -2px 4px rgba(255, 255, 255, .5),
+            inset 2px 2px 2px rgba(255, 255, 255, .075),
+            inset 2px 2px 4px rgba(0, 0, 0, .15);
+    }
+</style>
+
+<body>
+
+    <div class="wrap">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="number-box col-xs-12">
+                <input type="text" class="number-aria col-xs-3"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');  "
+                    maxlength="4">
+
+            </div>
+
+            <div class="number-box col-xs-12">
+                <div class="info-box col-xs-12">
+                    <div class="info-text">번호 4자리를 입력해 주세요</div>
+                </div>
+                <div class="number-row col-xs-12">
+                    <button class="number-btn col-xs-4" onclick="inputAdd(1)">1</button>
+                    <button class="number-btn col-xs-4" onclick="inputAdd(2)">2</button>
+                    <button class="number-btn col-xs-4" onclick="inputAdd(3)">3</button>
+                </div>
+                <div class="number-row col-xs-12">
+                    <button class="number-btn col-xs-4" onclick="inputAdd(4)">4</button>
+                    <button class="number-btn col-xs-4" onclick="inputAdd(5)">5</button>
+                    <button class="number-btn col-xs-4" onclick="inputAdd(6)">6</button>
+                </div>
+                <div class="number-row col-xs-12">
+                    <button class="number-btn col-xs-4" onclick="inputAdd(7)">7</button>
+                    <button class="number-btn col-xs-4" onclick="inputAdd(8)">8</button>
+                    <button class="number-btn col-xs-4" onclick="inputAdd(9)">9</button>
+                </div>
+                <div class="number-row col-xs-12">
+                    <button class="number-btn col-xs-4" id="checkBtn" onclick="submit();"><i class="fa-solid fa-check"></i></button>
+                    <button class="number-btn col-xs-4" onclick="inputAdd(0)">0</button>
+                    <button class="number-btn col-xs-4" id="clearBtn" onclick="backspace();"><i class="fa-solid fa-delete-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script>
+        let isPinResetting = false
+
+        function inputAdd(number) {
+            let input = document.querySelector("input[type='text']");
+            if (input.value.length == 4) return;
+            if (isPinResetting == true) return;
+            input.value += number;
+        }
+        
+        function backspace() {
+            if (isPinResetting == true) return;
+            let input = document.querySelector("input[type='text']");
+            input.value = input.value.slice(0, -1);
+        }
+
+    </script>
+</body>
+</html>
